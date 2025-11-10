@@ -1,0 +1,23 @@
+spring:
+    application:
+        name: toy
+
+server:
+    port: 8080
+
+management:
+    endpoints:
+        web:
+            base-path: /actuator
+            exposure:
+                include: health
+    endpoint:
+        health:
+            show-details: never
+            probes:
+                enabled: true
+    health:
+        livenessstate:
+            enabled: true
+        readinessstate:
+            enabled: true
