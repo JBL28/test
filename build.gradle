@@ -34,7 +34,19 @@ sonarqube {
     properties {
         property "sonar.projectKey", "test"
         property "sonar.projectName", "test"
-        property "sonar.sources", "src"                     // 비표준 구조일 때 필수
-        property "sonar.java.binaries", "build/classes"     // 컴파일 산출물 경로
+
+        // ✅ main과 test를 명확히 분리
+        property "sonar.sources", "src/main/java"
+        property "sonar.tests",   "src/test/java"
+
+        // (선택) 리소스/빌드 폴더 정리
+        property "sonar.exclusions", "**/build/**"
+        property "sonar.java.binaries", "build/classes/java/main"
+
+        // (선택) 테스트 리포트/커버리지 쓰는 경우
+        // property "sonar.junit.reportPaths", "build/test-results/test"
+        // property "sonar.java.coveragePlugin", "jacoco"
+        // property "sonar.jacoco.reportPaths", "build/jacoco/test.exec"
     }
 }
+
