@@ -1,16 +1,19 @@
 spring:
     application:
         name: toy
+    lifecycle:
+        timeout-per-shutdown-phase: 60S # 단위: 초, 서비스에 맞게 설정하기
 
 server:
     port: 8080
+    shutdown: graceful
 
 management:
     endpoints:
         web:
             base-path: /actuator
             exposure:
-                include: health
+                include: health, metrics, info, drain
     endpoint:
         health:
             show-details: never

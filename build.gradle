@@ -35,11 +35,11 @@ sonarqube {
         property "sonar.projectKey", "test"
         property "sonar.projectName", "test"
 
-        // ✅ main과 test를 명확히 분리
+        // main과 test를 분리
         property "sonar.sources", "src/main/java"
         property "sonar.tests",   "src/test/java"
 
-        // (선택) 리소스/빌드 폴더 정리
+        // 리소스/빌드 폴더 정리
         property "sonar.exclusions", "**/build/**"
         property "sonar.java.binaries", "build/classes/java/main"
 
