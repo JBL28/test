@@ -29,3 +29,12 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "test"
+        property "sonar.projectName", "test"
+        property "sonar.sources", "src"                     // 비표준 구조일 때 필수
+        property "sonar.java.binaries", "build/classes"     // 컴파일 산출물 경로
+    }
+}
